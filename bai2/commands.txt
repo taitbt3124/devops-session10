@@ -1,14 +1,6 @@
-# ===== Bai 2: Tao user deploy va cai Docker (chay voi quyen root) =====
-
-# 1. Dang nhap VPS bang root
 sudo -i
-
-# 2. Tao user deploy va cap quyen sudo
 adduser deploy
 usermod -aG sudo deploy
-groups deploy
-
-# 3. Cai Docker Engine + Docker Compose plugin (repo chinh thuc cua Docker)
 apt update
 apt install -y ca-certificates curl
 install -m 0755 -d /etc/apt/keyrings
@@ -17,13 +9,6 @@ chmod a+r /etc/apt/keyrings/docker.asc
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" > /etc/apt/sources.list.d/docker.list
 apt update
 apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-systemctl enable --now docker
-
-# 4. Them user deploy vao group docker
 usermod -aG docker deploy
-
-# 5. Kiem tra duoi quyen user deploy
 su - deploy
 docker --version
-docker compose version
-docker run --rm hello-world
