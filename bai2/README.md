@@ -6,4 +6,4 @@
 
 ## Ảnh Terminal kiểm tra `docker --version` dưới quyền user deploy
 
-![docker version](images/docker-version.png)
+<img width="406" height="141" alt="image" src="https://github.com/user-attachments/assets/f21754ee-f667-4515-8e00-4197d08e786d" />
